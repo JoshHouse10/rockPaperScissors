@@ -1,5 +1,5 @@
-let userScore = 0 
-let computerScore = 0
+let userScore = 0 ;
+let computerScore = 0 ;
 
 function getComputerChoice() {
    let num = Math.ceil(Math.random()*3)
@@ -20,36 +20,26 @@ function getHumanChoice() {
 
 
 function playRound(getHumanChoice, getComputerChoice) {
-    let winner
-    let draw = false
+    let winner;
+    let draw = false ; 
 
-    if(getHumanChoice == "rock" & getComputerChoice =="scissors") {
+    if(getHumanChoice == getComputerChoice) {
+        alert(`${getHumanChoice} and ${getComputerChoice} makes a draw!`)
+        draw = true
+        
+    }
+
+    else if(
+        ((getHumanChoice == "rock" && getComputerChoice =="scissors")) || 
+        ((getHumanChoice == "paper" && getComputerChoice == "rock")) || 
+        ((getHumanChoice == "scissors" && getComputerChoice == "paper "))) {
         winner = true 
     }
 
-    else if(getHumanChoice == "paper" & getComputerChoice =="rock") {
-        winner = true
-    }
-
-    else if(getHumanChoice == "scissors" & getComputerChoice =="paper") {
-        winner = true
-    }
-
-    else if(getHumanChoice == "scissors" & getComputerChoice =="rock") {
-        winner = false
-    }
-
-    else if(getHumanChoice == "rock" & getComputerChoice =="paper") {
-        winner = false
-    }
-
-    else if(getHumanChoice == "paper" & getComputerChoice =="scissors") {
-        winner = false
-    }
-
+   
     else {
         winner = false 
-        draw = true
+    
     }
 
     if(winner == true) {
@@ -57,14 +47,13 @@ function playRound(getHumanChoice, getComputerChoice) {
         userScore++
     }
 
-    else if( draw == false & winner == false ) {
+    else if(winner == false & draw == false){
         alert(`Unlucky you lost! ${getComputerChoice} beats ${getHumanChoice}`)
         computerScore++
     }
+    
 
-    else if(draw == true) {
-      alert(`${getHumanChoice} and ${getComputerChoice} makes a draw!`)
-    }
+   
 
 
 
@@ -76,7 +65,7 @@ function playRound(getHumanChoice, getComputerChoice) {
 
 
 function playGame(playRound) {
-    for(i=1; i <= 5; i++) {
+    for(userScore = userScore, computerScore = computerScore; userScore < 2 && computerScore < 2; userScore = userScore, computerScore = computerScore) {
         playRound(getHumanChoice(), getComputerChoice())
         
 
